@@ -24,6 +24,18 @@ public class PlayerScript : MonoBehaviour
 
 		movement = new Vector2 (speed.x * inputX,
 		                     speed.y * inputY);
+
+        bool shoot = Input.GetButton("Fire1");
+        shoot |= Input.GetButton("Fire2");
+        if(shoot)
+        {
+            WeaponScript weapon = GetComponent<WeaponScript>();
+            if(weapon!=null)
+            {
+                //si ce n'est pas un ennemi
+                weapon.Attack(false);
+            }
+        }
 	}
 
 	void FixedUpdate()
