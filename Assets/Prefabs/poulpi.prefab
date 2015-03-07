@@ -13,8 +13,25 @@ GameObject:
   - 50: {fileID: 5006312}
   - 114: {fileID: 11429170}
   - 114: {fileID: 11439552}
+  - 114: {fileID: 11447776}
   m_Layer: 0
   m_Name: poulpi
+  m_TagString: Untagged
+  m_Icon: {fileID: 0}
+  m_NavMeshLayer: 0
+  m_StaticEditorFlags: 0
+  m_IsActive: 1
+--- !u!1 &138218
+GameObject:
+  m_ObjectHideFlags: 0
+  m_PrefabParentObject: {fileID: 0}
+  m_PrefabInternal: {fileID: 100100000}
+  serializedVersion: 4
+  m_Component:
+  - 4: {fileID: 438218}
+  - 114: {fileID: 11438218}
+  m_Layer: 0
+  m_Name: WeaponObject
   m_TagString: Untagged
   m_Icon: {fileID: 0}
   m_NavMeshLayer: 0
@@ -27,10 +44,23 @@ Transform:
   m_PrefabInternal: {fileID: 100100000}
   m_GameObject: {fileID: 106312}
   m_LocalRotation: {x: 0, y: 0, z: 0, w: 1}
-  m_LocalPosition: {x: 5.63000011, y: -2.58999991, z: 0}
+  m_LocalPosition: {x: 16.8400002, y: .0199999996, z: 0}
   m_LocalScale: {x: .200000003, y: .200000003, z: 1}
-  m_Children: []
+  m_Children:
+  - {fileID: 438218}
   m_Father: {fileID: 0}
+  m_RootOrder: 0
+--- !u!4 &438218
+Transform:
+  m_ObjectHideFlags: 1
+  m_PrefabParentObject: {fileID: 0}
+  m_PrefabInternal: {fileID: 100100000}
+  m_GameObject: {fileID: 138218}
+  m_LocalRotation: {x: 0, y: 0, z: 1, w: -4.37113883e-08}
+  m_LocalPosition: {x: -.450000763, y: -.149999991, z: 0}
+  m_LocalScale: {x: 5, y: 5, z: 1}
+  m_Children: []
+  m_Father: {fileID: 406312}
   m_RootOrder: 0
 --- !u!50 &5006312
 Rigidbody2D:
@@ -71,6 +101,19 @@ MonoBehaviour:
   m_EditorClassIdentifier: 
   hp: 100
   isEnemy: 1
+--- !u!114 &11438218
+MonoBehaviour:
+  m_ObjectHideFlags: 1
+  m_PrefabParentObject: {fileID: 0}
+  m_PrefabInternal: {fileID: 100100000}
+  m_GameObject: {fileID: 138218}
+  m_Enabled: 1
+  m_EditorHideFlags: 0
+  m_Script: {fileID: 11500000, guid: 456eaef98499df846a18594fde7512b2, type: 3}
+  m_Name: 
+  m_EditorClassIdentifier: 
+  shotPrefab: {fileID: 465024, guid: 71686ea19a1379c47a93f218e2c450a1, type: 2}
+  shootRate: .25
 --- !u!114 &11439552
 MonoBehaviour:
   m_ObjectHideFlags: 1
@@ -84,6 +127,17 @@ MonoBehaviour:
   m_EditorClassIdentifier: 
   speed: {x: 5, y: 5}
   direction: {x: -1, y: 0}
+--- !u!114 &11447776
+MonoBehaviour:
+  m_ObjectHideFlags: 1
+  m_PrefabParentObject: {fileID: 0}
+  m_PrefabInternal: {fileID: 100100000}
+  m_GameObject: {fileID: 106312}
+  m_Enabled: 1
+  m_EditorHideFlags: 0
+  m_Script: {fileID: 11500000, guid: d9f0d6fc95c6c2d45808f95010badf9d, type: 3}
+  m_Name: 
+  m_EditorClassIdentifier: 
 --- !u!212 &21206312
 SpriteRenderer:
   m_ObjectHideFlags: 1
