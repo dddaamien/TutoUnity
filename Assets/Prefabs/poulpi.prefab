@@ -21,6 +21,22 @@ GameObject:
   m_NavMeshLayer: 0
   m_StaticEditorFlags: 0
   m_IsActive: 1
+--- !u!1 &119180
+GameObject:
+  m_ObjectHideFlags: 0
+  m_PrefabParentObject: {fileID: 0}
+  m_PrefabInternal: {fileID: 100100000}
+  serializedVersion: 4
+  m_Component:
+  - 4: {fileID: 419180}
+  - 114: {fileID: 11419180}
+  m_Layer: 0
+  m_Name: WeaponObject
+  m_TagString: Untagged
+  m_Icon: {fileID: 0}
+  m_NavMeshLayer: 0
+  m_StaticEditorFlags: 0
+  m_IsActive: 1
 --- !u!1 &138218
 GameObject:
   m_ObjectHideFlags: 0
@@ -47,8 +63,21 @@ Transform:
   m_LocalPosition: {x: 16.8400002, y: .0199999996, z: 0}
   m_LocalScale: {x: .200000003, y: .200000003, z: 1}
   m_Children:
+  - {fileID: 419180}
   - {fileID: 438218}
   m_Father: {fileID: 0}
+  m_RootOrder: 0
+--- !u!4 &419180
+Transform:
+  m_ObjectHideFlags: 1
+  m_PrefabParentObject: {fileID: 0}
+  m_PrefabInternal: {fileID: 100100000}
+  m_GameObject: {fileID: 119180}
+  m_LocalRotation: {x: 0, y: 0, z: .99619472, w: -.0871557668}
+  m_LocalPosition: {x: -.450000763, y: -.149999991, z: 0}
+  m_LocalScale: {x: 5, y: 5, z: 1}
+  m_Children: []
+  m_Father: {fileID: 406312}
   m_RootOrder: 0
 --- !u!4 &438218
 Transform:
@@ -56,12 +85,12 @@ Transform:
   m_PrefabParentObject: {fileID: 0}
   m_PrefabInternal: {fileID: 100100000}
   m_GameObject: {fileID: 138218}
-  m_LocalRotation: {x: 0, y: 0, z: 1, w: -4.37113883e-08}
+  m_LocalRotation: {x: 0, y: 0, z: .99619472, w: .087155804}
   m_LocalPosition: {x: -.450000763, y: -.149999991, z: 0}
   m_LocalScale: {x: 5, y: 5, z: 1}
   m_Children: []
   m_Father: {fileID: 406312}
-  m_RootOrder: 0
+  m_RootOrder: 1
 --- !u!50 &5006312
 Rigidbody2D:
   m_ObjectHideFlags: 1
@@ -88,6 +117,19 @@ BoxCollider2D:
   m_IsTrigger: 0
   m_Size: {x: 5.02376652, y: 3.71188164}
   m_Center: {x: .1070261, y: -.214059353}
+--- !u!114 &11419180
+MonoBehaviour:
+  m_ObjectHideFlags: 1
+  m_PrefabParentObject: {fileID: 0}
+  m_PrefabInternal: {fileID: 100100000}
+  m_GameObject: {fileID: 119180}
+  m_Enabled: 1
+  m_EditorHideFlags: 0
+  m_Script: {fileID: 11500000, guid: 456eaef98499df846a18594fde7512b2, type: 3}
+  m_Name: 
+  m_EditorClassIdentifier: 
+  shotPrefab: {fileID: 465024, guid: 71686ea19a1379c47a93f218e2c450a1, type: 2}
+  shootRate: .699999988
 --- !u!114 &11429170
 MonoBehaviour:
   m_ObjectHideFlags: 1
@@ -113,7 +155,7 @@ MonoBehaviour:
   m_Name: 
   m_EditorClassIdentifier: 
   shotPrefab: {fileID: 465024, guid: 71686ea19a1379c47a93f218e2c450a1, type: 2}
-  shootRate: .25
+  shootRate: .699999988
 --- !u!114 &11439552
 MonoBehaviour:
   m_ObjectHideFlags: 1
