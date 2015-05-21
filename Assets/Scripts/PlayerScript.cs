@@ -3,11 +3,9 @@ using System.Collections;
 
 public class PlayerScript : MonoBehaviour 
 {
-	//vitesse de déplacement
-	public Vector2 speed = new Vector2(50,50);
-
-	//stockage du mouvement
-	private Vector2 movement;
+	//puissance du saut
+    public float jump = 50;
+    public int score = 0; //à déplacer dans un script parent et mettre en privé
 
 	// Use this for initialization
 	void Start () 
@@ -18,38 +16,30 @@ public class PlayerScript : MonoBehaviour
 	// Update is called once per frame
 	void Update () 
 	{
-		//entrée utilisateur
-		float inputX = Input.GetAxis("Horizontal");
-		float inputY = Input.GetAxis("Vertical");
-
-		movement = new Vector2 (speed.x * inputX,
-		                     speed.y * inputY);
-
-        var dist = (transform.position - Camera.main.transform.position).z;
-        var leftBorder = Camera.main.ViewportToWorldPoint(new Vector3(0, 0, dist)).x;
-        var rightBorder = Camera.main.ViewportToWorldPoint(new Vector3(1, 0, dist)).x;
-        var topBorder = Camera.main.ViewportToWorldPoint(new Vector3(0, 0, dist)).y;
-        var bottomBorder = Camera.main.ViewportToWorldPoint(new Vector3(0, 1, dist)).y;
-
-        transform.position = new Vector3(Mathf.Clamp(transform.position.x, leftBorder, rightBorder), Mathf.Clamp(transform.position.y, topBorder, bottomBorder), transform.position.z);
-
-        bool shoot = Input.GetButton("Fire1");
-        shoot |= Input.GetButton("Fire2");
-        if(shoot)
+		if(Input.GetKey("space") || Input.GetKey("up"))
         {
-            WeaponScript weapon = GetComponent<WeaponScript>();
-            if(weapon!=null)
-            {
-                //si ce n'est pas un ennemi
-                weapon.Attack(false);
-            }
+            rigidbody2D.AddForce(new Vector2(0,jump));
         }
 	}
 
-	void FixedUpdate()
-	{
-		rigidbody2D.velocity = movement;
-	}
+	//Suppression de l'objet si collision
+    void OnTriggerEnter2D(Collider2D collider)
+    {
+        FoodScript food = collider.gameObject.GetComponent<FoodScript>(); // On récupère les attributs de la nourriture
+        if (food != null)
+        {
+            score += food.goodness;
+            Destroy(collider.gameObject);
+            SpecialEffectsHelper.Instance.Explosion(collider.gameObject.transform.position);
+        }
+        else
+        {
+            Destroy(gameObject);
+            SpecialEffectsHelper.Instance.Explosion(transform.position);
+        }
+        
+    }
+
     void OnDestroy()
     {
         transform.parent.gameObject.AddComponent<GameOverScript>();
