@@ -42,14 +42,17 @@ public class PlayerScript : MonoBehaviour
         FoodScript food = collider.gameObject.GetComponent<FoodScript>(); // On récupère les attributs de la nourriture
         if (food != null)
         {
-            score += food.goodness;
-            Destroy(collider.gameObject);
-            SpecialEffectsHelper.Instance.Explosion(collider.gameObject.transform.position);
-        }
-        else // Collision avec un mur
-        {
-            Destroy(gameObject);
-            SpecialEffectsHelper.Instance.Explosion(transform.position);
+            if(food.isWall == false) //nourriture
+            {
+                score += food.goodness;
+                Destroy(collider.gameObject);
+//                SpecialEffectsHelper.Instance.Explosion(collider.gameObject.transform.position);
+            }
+            else //mur
+            {
+                Destroy(gameObject);
+                SpecialEffectsHelper.Instance.Explosion(transform.position);
+            }
         }
         if(score < 0)
         {

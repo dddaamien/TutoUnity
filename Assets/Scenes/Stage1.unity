@@ -537,6 +537,7 @@ MonoBehaviour:
   - {fileID: 423924, guid: bf0d150d369ea00469ab42ff1cb7f9ff, type: 2}
   - {fileID: 457976, guid: 9266a78cdae30434eb2b6d47220c628d, type: 2}
   foodFrq: 2.03999996
+  score: 0
 --- !u!1 &495668761
 GameObject:
   m_ObjectHideFlags: 0

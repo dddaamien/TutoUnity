@@ -10,6 +10,7 @@ GameObject:
   - 4: {fileID: 494384}
   - 212: {fileID: 21294384}
   - 61: {fileID: 6194384}
+  - 114: {fileID: 11485682}
   m_Layer: 0
   m_Name: mur
   m_TagString: Untagged
@@ -40,6 +41,19 @@ BoxCollider2D:
   m_IsTrigger: 1
   m_Size: {x: .639999986, y: 1.27999997}
   m_Center: {x: 0, y: 0}
+--- !u!114 &11485682
+MonoBehaviour:
+  m_ObjectHideFlags: 1
+  m_PrefabParentObject: {fileID: 0}
+  m_PrefabInternal: {fileID: 100100000}
+  m_GameObject: {fileID: 194384}
+  m_Enabled: 1
+  m_EditorHideFlags: 0
+  m_Script: {fileID: 11500000, guid: fdfbed8d0e611bf47935b1ec2042cacf, type: 3}
+  m_Name: 
+  m_EditorClassIdentifier: 
+  goodness: 0
+  isWall: 1
 --- !u!212 &21294384
 SpriteRenderer:
   m_ObjectHideFlags: 1
