@@ -4,7 +4,8 @@ using System.Collections;
 public class PlayerScript : MonoBehaviour 
 {
 	//puissance du saut
-    public float jump = 50;
+    public float jumpHeight;
+    public bool isJumping = false;
     public int score = 0; //à déplacer dans un script parent et mettre en privé
 
 	// Use this for initialization
@@ -18,9 +19,22 @@ public class PlayerScript : MonoBehaviour
 	{
 		if(Input.GetKey("space") || Input.GetKey("up"))
         {
-            rigidbody2D.AddForce(new Vector2(0,jump));
+            if (isJumping == false)
+            {
+                //rigibody2D.AddForce(Vector2.up*jumpHeight);
+                GetComponent<Rigidbody2D>().AddForce(Vector2.up * jumpHeight);
+                isJumping = true;
+            }
         }
 	}
+
+    void OnCollisionEnter2D(Collision2D col)
+    {
+        if (col.gameObject.tag == "Ground")
+        {
+            isJumping = false;
+        }
+    }
 
 	//Suppression de l'objet si collision
     void OnTriggerEnter2D(Collider2D collider)
