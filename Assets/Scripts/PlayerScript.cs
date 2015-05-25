@@ -46,12 +46,16 @@ public class PlayerScript : MonoBehaviour
             Destroy(collider.gameObject);
             SpecialEffectsHelper.Instance.Explosion(collider.gameObject.transform.position);
         }
-        else
+        else // Collision avec un mur
         {
             Destroy(gameObject);
             SpecialEffectsHelper.Instance.Explosion(transform.position);
         }
-        
+        if(score < 0)
+        {
+            Destroy(gameObject);
+            SpecialEffectsHelper.Instance.Explosion(transform.position);
+        }
     }
 
     void OnDestroy()

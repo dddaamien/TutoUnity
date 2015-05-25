@@ -11,7 +11,7 @@ public class GameScript : MonoBehaviour
     private float wallCooldown = 0f;
     private float foodCooldown = 0;
 
-    //public int score = 0;
+    public int score = 0;
 
     void Start ()
     {
@@ -37,14 +37,14 @@ public class GameScript : MonoBehaviour
             var foodTransforn = Instantiate(foodPrefab[(int)Random.Range(0,foodPrefab.Length)]) as Transform;
             foodTransforn.position = new Vector3(Camera.main.transform.position.x + 10f, -2.75f, 0f);
         }
-
-        
+        //Copie du score
+        score=GetComponentInChildren<PlayerScript>().score;
     }
     
     void OnGUI ()
     {
         //Affichage du score
-        GUI.TextArea(new Rect(10,Screen.height-30,130,20), "Score: " + wallCooldown.ToString());
+        GUI.TextArea(new Rect(10,Screen.height-30,130,20), "Score: " + score.ToString());
     }
 }
 
