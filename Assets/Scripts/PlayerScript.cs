@@ -7,11 +7,12 @@ public class PlayerScript : MonoBehaviour
     public float jumpHeight;
     public bool isJumping = false;
     public int score = 0; //à déplacer dans un script parent et mettre en privé
+    private Animator animation;
 
 	// Use this for initialization
 	void Start () 
 	{
-	
+        animation = this.GetComponent<Animator>();
 	}
 	
 	// Update is called once per frame
@@ -26,6 +27,7 @@ public class PlayerScript : MonoBehaviour
                 isJumping = true;
             }
         }
+        animation.SetBool("isJumping", isJumping);
 	}
 
     void OnCollisionEnter2D(Collision2D col)

@@ -1086,6 +1086,7 @@ GameObject:
   - 114: {fileID: 759197738}
   - 114: {fileID: 759197741}
   - 58: {fileID: 759197736}
+  - 95: {fileID: 759197739}
   m_Layer: 0
   m_Name: Player
   m_TagString: Untagged
@@ -1171,6 +1172,21 @@ MonoBehaviour:
   jumpHeight: 300
   isJumping: 1
   score: 0
+--- !u!95 &759197739
+Animator:
+  serializedVersion: 3
+  m_ObjectHideFlags: 0
+  m_PrefabParentObject: {fileID: 0}
+  m_PrefabInternal: {fileID: 0}
+  m_GameObject: {fileID: 759197733}
+  m_Enabled: 1
+  m_Avatar: {fileID: 0}
+  m_Controller: {fileID: 9100000, guid: a15284e341c89c043bc59b211d3adbd0, type: 2}
+  m_CullingMode: 0
+  m_UpdateMode: 0
+  m_ApplyRootMotion: 1
+  m_HasTransformHierarchy: 1
+  m_AllowConstantClipSamplingOptimization: 1
 --- !u!114 &759197741
 MonoBehaviour:
   m_ObjectHideFlags: 0
