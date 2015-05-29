@@ -8,34 +8,34 @@ public class GameScript : MonoBehaviour
     public Transform[] foodPrefab;
     public float foodFrq = 2;
 
-    private float wallCooldown = 0f;
-    private float foodCooldown = 0;
+    private float wallTime = 0f;
+    private float foodTime = 0;
 
     public int score = 0;
 
     void Start ()
     {
-        wallCooldown = wallFrq;
-        foodCooldown = foodFrq;
+        wallTime = wallFrq;
+        foodTime = foodFrq;
     }
 
 	void Update ()
     {
         //Gestion de l'apparition des objets
-        wallCooldown -= Time.deltaTime;
-        foodCooldown -= Time.deltaTime;
+        wallTime -= Time.deltaTime;
+        foodTime -= Time.deltaTime;
 
-        if(wallCooldown <= 0f)
+        if(wallTime <= 0f)
         {
-            wallCooldown = Random.Range(wallFrq * (1 - (score / 1000)), 2 * (wallFrq * (1 - (score / 1000)))); //Géneration du temps avant la création du prochain objet
+            wallTime = Random.Range(wallFrq * (1 - (score / 1000)), 2 * (wallFrq * (1 - (score / 1000)))); //Géneration du temps avant la création du prochain objet
             var wallTransforn = Instantiate(wallPrefab) as Transform;
-            wallTransforn.position = new Vector3(Camera.main.transform.position.x + 10f, -2.75f, 0f);
+            wallTransforn.position = new Vector3(Camera.main.transform.position.x + 15f, -2.75f, 0f);
         }
-        else if(foodCooldown <= 0f)
+        else if(foodTime <= 0f)
         {
-            foodCooldown = Random.Range(foodFrq,2*foodFrq);
+            foodTime = Random.Range(foodFrq,2*foodFrq);
             var foodTransforn = Instantiate(foodPrefab[(int)Random.Range(0,foodPrefab.Length)]) as Transform;
-            foodTransforn.position = new Vector3(Camera.main.transform.position.x + 10f, -2.75f, 0f);
+            foodTransforn.position = new Vector3(Camera.main.transform.position.x + 15f, -2.75f, 0f);
         }
         //Copie du score
         score=GetComponentInChildren<PlayerScript>().score;
