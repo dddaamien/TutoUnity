@@ -27,7 +27,7 @@ public class GameScript : MonoBehaviour
 
         if(wallCooldown <= 0f)
         {
-            wallCooldown = Random.Range(wallFrq,2*wallFrq); //Géneration du temps avant la création du prochain objet
+            wallCooldown = Random.Range(wallFrq * (1 - (score / 1000)), 2 * (wallFrq * (1 - (score / 1000)))); //Géneration du temps avant la création du prochain objet
             var wallTransforn = Instantiate(wallPrefab) as Transform;
             wallTransforn.position = new Vector3(Camera.main.transform.position.x + 10f, -2.75f, 0f);
         }
