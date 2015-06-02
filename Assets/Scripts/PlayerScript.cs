@@ -13,6 +13,7 @@ public class PlayerScript : MonoBehaviour
 	void Start () 
 	{
         animation = this.GetComponent<Animator>();
+        Time.timeScale = 1f; // On remet le jeu à sa vitesse normale
 	}
 	
 	// Update is called once per frame
@@ -69,5 +70,6 @@ public class PlayerScript : MonoBehaviour
     void OnDestroy()
     {
         transform.parent.gameObject.AddComponent<GameOverScript>();
+        Time.timeScale = 0f; // Met le jeu en pause
     }
 }

@@ -29,7 +29,7 @@ public class GameScript : MonoBehaviour
         {
             wallTime = Random.Range(wallFrq * (1 - (score / 1000)), 2 * (wallFrq * (1 - (score / 1000)))); //Géneration du temps avant la création du prochain objet
             var wallTransforn = Instantiate(wallPrefab) as Transform;
-            wallTransforn.position = new Vector3(Camera.main.transform.position.x + 15f, -2.75f, 0f);
+            wallTransforn.position = new Vector3(Camera.main.transform.position.x + 15f, -2.3f, 0f);
         }
         else if(foodTime <= 0f)
         {
@@ -38,7 +38,7 @@ public class GameScript : MonoBehaviour
             foodTransforn.position = new Vector3(Camera.main.transform.position.x + 15f, -2.75f, 0f);
         }
         //Copie du score
-        score=GetComponentInChildren<PlayerScript>().score;
+        if(GetComponentInChildren<PlayerScript>() != null) score=GetComponentInChildren<PlayerScript>().score;
     }
     
     void OnGUI ()
