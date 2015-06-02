@@ -22,9 +22,9 @@ public class PlayerScript : MonoBehaviour
         {
             if (isJumping == false)
             {
-                //rigibody2D.AddForce(Vector2.up*jumpHeight);
+                SoundEffectsHelper.Instance.MakeJumpSound(); // Jouer le bruit du saut
                 GetComponent<Rigidbody2D>().AddForce(Vector2.up * jumpHeight);
-                isJumping = true;
+                isJumping = true;                
             }
         }
         animation.SetBool("isJumping", isJumping);
@@ -46,20 +46,23 @@ public class PlayerScript : MonoBehaviour
         {
             if(food.isWall == false) //nourriture
             {
-                score += food.goodness;
+                score += food.goodness; //Màj du score
+                if (food.goodness > 0) SoundEffectsHelper.Instance.MakeGoodSound(); //Jouer ce son si c'est un bon aliment
+                else SoundEffectsHelper.Instance.MakeBadSound();
                 Destroy(collider.gameObject);
-//                SpecialEffectsHelper.Instance.Explosion(collider.gameObject.transform.position);
             }
             else //mur
-            {
+            {                
                 Destroy(gameObject);
-                SpecialEffectsHelper.Instance.Explosion(transform.position);
+                SpecialEffectsHelper.Instance.Explosion(transform.position); // Effet visuel
+                SoundEffectsHelper.Instance.MakeDeathSound(); // Effet sonore
             }
         }
         if(score < 0)
         {
             Destroy(gameObject);
             SpecialEffectsHelper.Instance.Explosion(transform.position);
+            SoundEffectsHelper.Instance.MakeDeathSound(); // Effet sonore
         }
     }
 
