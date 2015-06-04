@@ -6,7 +6,7 @@ public class PlayerScript : MonoBehaviour
 	//puissance du saut
     public float jumpHeight;
     public bool isJumping = false;
-    public int score = 0; //à déplacer dans un script parent et mettre en privé
+    public int score = 0;
     private Animator animation;
 
 	// Use this for initialization
@@ -29,6 +29,12 @@ public class PlayerScript : MonoBehaviour
             }
         }
         animation.SetBool("isJumping", isJumping);
+        if (Input.GetKeyDown("escape")) //Pause
+        {
+            if (Time.timeScale == 0f) Time.timeScale = 1f;
+            else Time.timeScale = 0f;
+        }
+        if (Input.GetKeyDown("f")) Time.timeScale = 2; // Mode rapide
 	}
 
     void OnCollisionEnter2D(Collision2D col)
@@ -54,22 +60,21 @@ public class PlayerScript : MonoBehaviour
             }
             else //mur
             {                
-                Destroy(gameObject);
-                SpecialEffectsHelper.Instance.Explosion(transform.position); // Effet visuel
-                SoundEffectsHelper.Instance.MakeDeathSound(); // Effet sonore
+                FinPartie();
             }
         }
         if(score < 0)
         {
-            Destroy(gameObject);
-            SpecialEffectsHelper.Instance.Explosion(transform.position);
-            SoundEffectsHelper.Instance.MakeDeathSound(); // Effet sonore
+            FinPartie();
         }
     }
 
-    void OnDestroy()
+    void FinPartie()
     {
+        SoundEffectsHelper.Instance.MakeDeathSound(); // Effet sonore
+//      SpecialEffectsHelper.Instance.Explosion(transform.position); // Effet visuel
         transform.parent.gameObject.AddComponent<GameOverScript>();
         Time.timeScale = 0f; // Met le jeu en pause
+        Destroy(gameObject);
     }
 }

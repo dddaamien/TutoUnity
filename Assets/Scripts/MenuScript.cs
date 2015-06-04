@@ -3,13 +3,15 @@ using System.Collections;
 
 public class MenuScript : MonoBehaviour 
 {
+    public GUIStyle guiQuitter;
+    public GUIStyle guiStart;
     void OnGUI()
     {
-        if(GUI.Button(new Rect(Screen.width/2, Screen.height/2,84,60),"Jouer :-)"))
+        if (GUI.Button(new Rect(Screen.width / 2 - 64, Screen.height / 2 - 64, 128, 64), "", guiStart))
         {
             Application.LoadLevel("Stage1");
         }
-        if (GUI.Button(new Rect(Screen.width-80, 10, 70, 25), "Quitter :-("))
+        if (GUI.Button(new Rect(Screen.width / 2 - 64, Screen.height / 2 + 32, 128, 64), "",guiQuitter))
         {
             Application.Quit();
         }

@@ -1,65 +1,65 @@
 %YAML 1.1
 %TAG !u! tag:unity3d.com,2011:
---- !u!1 &115830
+--- !u!1 &188966
 GameObject:
   m_ObjectHideFlags: 0
   m_PrefabParentObject: {fileID: 0}
   m_PrefabInternal: {fileID: 100100000}
   serializedVersion: 4
   m_Component:
-  - 4: {fileID: 415830}
-  - 212: {fileID: 21215830}
-  - 114: {fileID: 11415830}
-  - 61: {fileID: 6115830}
+  - 4: {fileID: 488966}
+  - 212: {fileID: 21288966}
+  - 58: {fileID: 5888966}
+  - 114: {fileID: 11488966}
   m_Layer: 0
-  m_Name: "Bi\xE8re"
+  m_Name: pizza
   m_TagString: Untagged
   m_Icon: {fileID: 0}
   m_NavMeshLayer: 0
   m_StaticEditorFlags: 0
   m_IsActive: 1
---- !u!4 &415830
+--- !u!4 &488966
 Transform:
   m_ObjectHideFlags: 1
   m_PrefabParentObject: {fileID: 0}
   m_PrefabInternal: {fileID: 100100000}
-  m_GameObject: {fileID: 115830}
+  m_GameObject: {fileID: 188966}
   m_LocalRotation: {x: 0, y: 0, z: 0, w: 1}
-  m_LocalPosition: {x: 9.27000046, y: -1.5, z: 0}
+  m_LocalPosition: {x: -2.22543645, y: -1.90845025, z: 0}
   m_LocalScale: {x: 1, y: 1, z: 1}
   m_Children: []
   m_Father: {fileID: 0}
   m_RootOrder: 0
---- !u!61 &6115830
-BoxCollider2D:
+--- !u!58 &5888966
+CircleCollider2D:
   m_ObjectHideFlags: 1
   m_PrefabParentObject: {fileID: 0}
   m_PrefabInternal: {fileID: 100100000}
-  m_GameObject: {fileID: 115830}
+  m_GameObject: {fileID: 188966}
   m_Enabled: 1
   m_Material: {fileID: 0}
   m_IsTrigger: 1
-  m_Size: {x: .717879176, y: .850144386}
-  m_Center: {x: -.0165328979, y: -.0495986938}
---- !u!114 &11415830
+  m_Radius: .39485991
+  m_Center: {x: 0, y: -.0599999987}
+--- !u!114 &11488966
 MonoBehaviour:
   m_ObjectHideFlags: 1
   m_PrefabParentObject: {fileID: 0}
   m_PrefabInternal: {fileID: 100100000}
-  m_GameObject: {fileID: 115830}
+  m_GameObject: {fileID: 188966}
   m_Enabled: 1
   m_EditorHideFlags: 0
   m_Script: {fileID: 11500000, guid: fdfbed8d0e611bf47935b1ec2042cacf, type: 3}
   m_Name: 
   m_EditorClassIdentifier: 
-  goodness: -8
+  goodness: -6
   isWall: 0
---- !u!212 &21215830
+--- !u!212 &21288966
 SpriteRenderer:
   m_ObjectHideFlags: 1
   m_PrefabParentObject: {fileID: 0}
   m_PrefabInternal: {fileID: 100100000}
-  m_GameObject: {fileID: 115830}
+  m_GameObject: {fileID: 188966}
   m_Enabled: 1
   m_CastShadows: 0
   m_ReceiveShadows: 0
@@ -74,7 +74,7 @@ SpriteRenderer:
   m_ScaleInLightmap: 1
   m_SortingLayerID: 0
   m_SortingOrder: 0
-  m_Sprite: {fileID: 21300000, guid: 6941ecd1c6885f945a679018816476d9, type: 3}
+  m_Sprite: {fileID: 21300000, guid: 16f676874d4a18f41bea4f7528cf813b, type: 3}
   m_Color: {r: 1, g: 1, b: 1, a: 1}
 --- !u!1001 &100100000
 Prefab:
@@ -85,6 +85,6 @@ Prefab:
     m_Modifications: []
     m_RemovedComponents: []
   m_ParentPrefab: {fileID: 0}
-  m_RootGameObject: {fileID: 115830}
+  m_RootGameObject: {fileID: 188966}
   m_IsPrefabParent: 1
   m_IsExploded: 1
